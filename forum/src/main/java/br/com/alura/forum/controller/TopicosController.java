@@ -45,9 +45,10 @@ public class TopicosController {
 	//Agora chama a url: http://localhost:8080/topicos?page=0&size=3&sort=id,desc
 	//ou assim para ordenar por múltiplos campos: http://localhost:8080/topicos?page=0&size=3&sort=id,desc&sort=dataCriacao,desc
 	//ou assim se não quiser ordenar: http://localhost:8080/topicos?page=0&size=3
+	//Com o uso do @PageableDefault (informando sort, page e size) podemos usar a url sem query string: http://localhost:8080/topicos
 	@GetMapping
 	public Page<TopicoDto> lista(@RequestParam(required = false) String nomeCurso, 
-			@PageableDefault(sort = "id", direction = Direction.DESC) Pageable paginacao) {
+			@PageableDefault(sort = "id", direction = Direction.DESC, page = 0, size = 10) Pageable paginacao) {
 		
 		if (nomeCurso == null) {
 			Page<Topico> topicos = topicoRepository.findAll(paginacao);
