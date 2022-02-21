@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -47,6 +48,7 @@ public class TopicosController {
 	//ou assim se não quiser ordenar: http://localhost:8080/topicos?page=0&size=3
 	//Com o uso do @PageableDefault (informando sort, page e size) podemos usar a url sem query string: http://localhost:8080/topicos
 	@GetMapping
+	@Cacheable(value = "listaDeTopicos")
 	public Page<TopicoDto> lista(@RequestParam(required = false) String nomeCurso, 
 			@PageableDefault(sort = "id", direction = Direction.DESC, page = 0, size = 10) Pageable paginacao) {
 		
