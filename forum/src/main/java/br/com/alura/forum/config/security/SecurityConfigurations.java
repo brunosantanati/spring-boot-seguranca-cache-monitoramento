@@ -15,8 +15,6 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	//Configurações de autenticação
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// TODO Auto-generated method stub
-		super.configure(auth);
 	}
 	
 	//Configurações de autorização
@@ -24,15 +22,14 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers(HttpMethod.GET, "/topicos").permitAll()
-			.antMatchers(HttpMethod.GET, "/topicos/*").permitAll();
-		super.configure(http);
+			.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
+			.anyRequest().authenticated()
+			.and().formLogin();
 	}
 	
 	//Configurações de recursos estáticos(js, css, imagens, etc)
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		// TODO Auto-generated method stub
-		super.configure(web);
 	}
 
 }
