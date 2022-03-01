@@ -1,0 +1,5 @@
+Spring Boot Admin - GitHub
+https://github.com/codecentric/spring-boot-admin
+
+Spring Boot Admin - DOC 2.1.4
+https://codecentric.github.io/spring-boot-admin/2.1.4/
