@@ -3,3 +3,9 @@ https://github.com/codecentric/spring-boot-admin
 
 Spring Boot Admin - DOC 2.1.4
 https://codecentric.github.io/spring-boot-admin/2.1.4/
+
+SpringFox
+https://springfox.github.io/springfox/
+
+URL Swagger da aplicação:
+http://localhost:8080/swagger-ui.html
